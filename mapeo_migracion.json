@@ -1,0 +1,51 @@
+{
+  "entidades": [
+    {
+      "nombre": "Usuario",
+      "tabla_sql": "usuarios",
+      "etiqueta_neo4j": "Persona",
+      "consulta_sql": "SELECT id_usuario, nombre, email FROM usuarios",
+      "mapeo_campos": {
+        "id_usuario": "id_sql",
+        "nombre": "nombre",
+        "email": "email"
+      }
+    },
+    {
+      "nombre": "Publicacion",
+      "tabla_sql": "publicaciones",
+      "etiqueta_neo4j": "Post",
+      "consulta_sql": "SELECT id_publicacion, texto_contenido FROM publicaciones",
+      "mapeo_campos": {
+        "id_publicacion": "id_sql",
+        "texto_contenido": "texto"
+      }
+    }
+  ],
+  "relaciones": [
+    {
+      "nombre": "Amistad",
+      "tipo_relacion": "AMIGO_DE",
+      "consulta_sql": "SELECT usuario_solicitante_id, usuario_receptor_id FROM amistades WHERE estado = 'ACEPTADA'",
+      "nodo_origen": "Persona",
+      "nodo_destino": "Persona",
+      "campo_origen": "usuario_solicitante_id",
+      "campo_destino": "usuario_receptor_id"
+    },
+    {
+      "nombre": "Publicacion",
+      "tipo_relacion": "PUBLICO",
+      "consulta_sql": "SELECT autor_id, id_publicacion FROM publicaciones",
+      "nodo_origen": "Persona",
+      "nodo_destino": "Post",
+      "campo_origen": "autor_id",
+      "campo_destino": "id_publicacion"
+    }
+  ],
+  "opciones": {
+    "limpiar_neo4j_antes": false,
+    "crear_indices": true,
+    "batch_size": 1000,
+    "mostrar_progreso": true
+  }
+}

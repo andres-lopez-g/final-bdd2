@@ -1,0 +1,13 @@
+# Dependencias principales
+psycopg2-binary==2.9.9
+neo4j==5.14.1
+
+# UI moderna 
+customtkinter==5.2.2
+
+# Visualización de grafos
+matplotlib==3.8.2
+networkx==3.2.1
+
+# Utilidades
+python-dotenv==1.0.0

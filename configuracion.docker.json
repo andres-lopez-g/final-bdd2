@@ -1,0 +1,15 @@
+{
+    "postgresql": {
+        "dbname": "red_social_db",
+        "user": "postgres",
+        "password": "admin",
+        "host": "postgres",
+        "port": 5432
+    },
+    "neo4j": {
+        "direccion_uri": "bolt://neo4j:7687",
+        "usuario": "neo4j",
+        "clave": "test12345",
+        "borrar_al_iniciar": false
+    }
+}
